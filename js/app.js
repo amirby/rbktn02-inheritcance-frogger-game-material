@@ -1,8 +1,11 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.x = x;
+    this.y = y;
+    this.max = 100
+    this.speed = (Math.random()* this.max)+10
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -14,6 +17,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    this.x+=this.speed*dt
+    if(this.x > 550) {
+        this.x = -200;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -25,11 +32,47 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+var Player = function() {
+    this.x = 200;
+    this.y = 370;
+    this.sprite = 'images/char-boy.png';
+};
+
+Player.prototype.update = function(dt) {
+
+};
+
+// Draw the enemy on the screen, required method for game
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Player.prototype.handleInput = function(value){
+    if ((value === 'left') && (this.x > -20)){
+        this.x -= 20;
+    }
+    else if ((value === 'right') && (this.x < 420)){
+        this.x += 20;
+    }
+    else if ((value === 'up') && (this.y > -20)){
+        this.y -= 20;
+    }
+    else if ((value === 'down') && (this.y < 400)){
+        this.y += 20;
+    }
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+var Enemy1 = new Enemy(-30, 60)
+var Enemy2 = new Enemy(30, 140)
+var Enemy3 = new Enemy(220, 225)
+var Enemy4 = new Enemy(280, 60)
+var Enemy5 = new Enemy(-220, 225)
+var player = new Player()
+var allEnemies = [Enemy1, Enemy2, Enemy3, Enemy4, Enemy5 ]
 
 
 // This listens for key presses and sends the keys to your
@@ -44,3 +87,4 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
