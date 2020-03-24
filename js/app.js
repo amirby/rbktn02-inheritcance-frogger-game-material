@@ -33,14 +33,24 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function() {
+    this.score = 0
     this.x = 200;
     this.y = 370;
     this.sprite = 'images/char-boy.png';
 };
 
 Player.prototype.update = function(dt) {
-
+    if (this.y === -10){
+        this.reset()
+        this.score++
+        $('.badge').text(this.score)
+    }
 };
+
+Player.prototype.reset = function(){
+    this.x = 200;
+    this.y = 370;
+}
 
 // Draw the enemy on the screen, required method for game
 Player.prototype.render = function() {
@@ -54,7 +64,7 @@ Player.prototype.handleInput = function(value){
     else if ((value === 'right') && (this.x < 420)){
         this.x += 20;
     }
-    else if ((value === 'up') && (this.y > -20)){
+    else if ((value === 'up') && (this.y > -10)){
         this.y -= 20;
     }
     else if ((value === 'down') && (this.y < 400)){
