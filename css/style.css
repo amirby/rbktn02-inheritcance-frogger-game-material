@@ -3,19 +3,77 @@ body {
     background-image: url("/images/arcade.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Permanent Marker', cursiv
 }
 canvas{
     margin: 25px;
 }
- h1{
-     color:wheat;
-     margin: 0px;
-     font-size: xx-large;
- }
+
  .dropdown-menu{
     text-align: center;
-    background-color: inherit;
+    background-color: #222;
+    color: white;
  }
  .dropdown-menu img{
      height:100px;
  }
+
+ .badge{
+    font-size: large;
+     color: #222;
+     background-color: yellowgreen;
+ }
+
+ #logo{
+     color: yellowgreen;
+ }
+ #score{
+     font-size: xx-large;
+ }
+ .navbar{
+    font-size: x-large;
+ }
+ #frog{
+     height: 40px;         
+     width: auto;
+ }
+
+#logo{
+     margin-right: 0;
+     padding-right: 0;
+ }
+ .navbar-inverse .navbar-nav>.active>a ,
+ .navbar-inverse .navbar-nav>.active>a:focus,
+ .navbar-inverse .navbar-nav>.active>a:hover,
+ .navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>li>a:focus,
+.navbar-inverse .navbar-nav>li>ul>li:hover {
+    color: yellowgreen;
+}
+
+audio {
+    margin: 5px;
+    padding-top: 5px;
+    filter: sepia(20%) saturate(90%) grayscale(50) contrast(90%) invert(30%);
+    width: 200px;
+    height: 40px;
+  }
+
+.Heart{
+    height: 60px;
+}
+#hearts{
+    text-align: center;
+    margin-left: 40px;
+    padding-left: 40px;
+}
+
+.modal-content{
+    background-color: #222;
+    color: white;
+}
+
+.close{
+    color: tomato;
+    opacity: 1;
+}

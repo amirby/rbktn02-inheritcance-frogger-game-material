@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,24 +19,38 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="#">FROGGER</a>
+            <a class="navbar-brand" href="#" id="logo">FROGGER</a>
+            <img src="images/icon.png" alt="" id = "frog">
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">CHARACTERS<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><img src="/images/char-boy.png" alt=""></li>
-                  <li><img src="/images/char-cat-girl.png" alt=""></li>
-                  <li><img src="/images/char-princess-girl.png" alt=""></li>
-                  <li><img src="/images/char-horn-girl.png" alt=""></li>
-                  <li><img src="/images/char-pink-girl.png" alt=""></li>
+                  <li>Boy<img src="images/char-boy.png" alt="" class = "character" id ="Boy"></li>
+                  
+                  <li>Cat Girl<img src="images/char-cat-girl.png" alt="" class = "character" id ="Cat"></li>
+                  
+                  <li>Princess<img src="images/char-princess-girl.png" alt="" class = "character" id ="Princess"></li>
+                  
+                  <li>Horn Girl<img src="images/char-horn-girl.png" alt="" class = "character" id ="Horn"></li>
+                  
+                  <li>Pink Girl<img src="images/char-pink-girl.png" alt="" class = "character" id ="Pink"></li>
+                  
                 </ul>
               </li>
-              <li><a href="#">Your SCORE : <span class="badge">0</span></a></li>
+              <li ><a href="#" id ="score">Your SCORE : <span class="badge">0</span></a></li>
+              <li id="hearts">
+                <img src="images/Heart.png" alt="" class ="Heart" ></img>
+                <img src="images/Heart.png" alt="" class ="Heart" ></img>
+                <img src="images/Heart.png" alt="" class ="Heart" ></img>
+              </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"  data-target="#SignIn" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><audio controls loop autoplay id="controler">
+                    <source src="ring.mp3" type="audio/mpeg" id = "musicIn">
+                  </audio></li>
+              <li><a href="#"  data-target="#SignIn" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>            
             </ul>
           </div>
         </div>
@@ -64,6 +79,21 @@
                 </div>
                 <button  class="btn btn-danger" id="logbtn">Login</button>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="GameOver" tabindex="-1" role="dialog" aria-labelledby="GameOver" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <img src="images/icon.png" alt="" id = "frog">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img src="images/gameover.gif" alt="" id="">
             </div>
           </div>
         </div>
