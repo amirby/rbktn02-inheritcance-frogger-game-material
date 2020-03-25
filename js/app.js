@@ -48,12 +48,12 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var Player = function() {
+var Player = function(sprite) {
     this.score = 0
     this.life = 3
     this.x = 200;
     this.y = 370;
-    this.sprite = 'images/char-boy.png';
+    this.sprite = sprite || "Boy";
 };
 
 Player.prototype.update = function(dt) {
@@ -72,7 +72,7 @@ Player.prototype.reset = function(){
 
 // Draw the enemy on the screen, required method for game
 Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(document.getElementById(this.sprite), this.x, this.y);
 };
 
 Player.prototype.handleInput = function(value){
@@ -123,23 +123,14 @@ document.addEventListener('keydown', function(e) {
 });
 
 $('.character').click(function(){
-    id = this.id
-    var img = document.getElementById(id)
-    console.log(img.src)
-    player.sprite = img.src
+    id = this.id;
+    player = new Player(id)
 })
 
-var images = [
-     "images/char-boy.png",
-    "images/char-cat-girl.png",
-    "images/char-princess-girl.png",
-    "images/char-horn-girl.png",
-    "images/char-pink-girl.png"
-]
-Resources.load(images);
+
 
 $(document).ready(function(){
-    $("reload").click(function(){
+    $(".close").click(function(){
         location.reload(true);
     });
 });
